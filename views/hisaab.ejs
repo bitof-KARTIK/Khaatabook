@@ -1,0 +1,33 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main class="w-full h-screen bg-zinc-100 font-['Helvetica']">
+        <nav class="flex px-10 justify-between py-5">
+            <h3 class="text-2xl tracking-tight">Khaatabook</h3>
+            <div class="navlinks flex gap-5">
+                <a class="tracking-tight" href="/">Home</a>
+                <a class="tracking-tight" href="/create">Create New Hisaab</a>
+            </div>
+        </nav>
+        <div class="px-10 hisaabs">
+            <h3 class="text-2xl font-medium mb-5 mt-10 tracking-tight">hisaab of <span class="text-blue-500">
+                    <%=filename.split(".")[0]%>
+                </span> date</h3>
+            <p class="font-medium text-xl mb-10">
+                <%=filedata%>
+            </p>
+            <a class="text-zinc-400" href="/edit/<%=filename%>">edit this hisaab</a>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main class="w-full h-screen bg-zinc-100 font-['Helvetica']">
+        <nav class="flex px-10 justify-between py-5">
+            <h3 class="text-2xl tracking-tight">Khaatabook</h3>
+            <div class="navlinks flex gap-5">
+                <a class="tracking-tight" href="/">Home</a>
+                <a class="tracking-tight" href="/create">Create New Hisaab</a>
+            </div>
+        </nav>
+        <div class="px-10 hisaabs">
+            <h3 class="capitalize text-2xl font-medium mb-5 mt-10 tracking-tight">All hisaab kitaab</h3>
+
+            <% if(files.length>0){ %>
+                <% files.forEach((file)=>{ %>
+                    <div class="hisaab w-fit items-center py-3 mb-3 px-5 gap-20 bg-blue-500 flex justify-between rounded-md">
+                        <div class="flex gap-4 text-white items-center">
+                            <h3 class="text-2xl">
+                                <%= file.split(".")[0] %>
+                            </h3>
+                            <a href="/hisaab/<%= file%>"><i
+                                    class="w-6 h-6 text-blue-500 flex items-center justify-center bg-white rounded-full ri-arrow-right-line"></i></a>
+                        </div>
+                        <div class="flex gap-3 items-center">
+                            <a href="/edit/<%= file %>"><i class="text-white ri-pencil-line"></i></a>
+                            <a href="/delete/<%=file%>"><i
+                                    class="w-6 h-6 text-red-500 flex items-center justify-center bg-white rounded-full ri-delete-bin-line"></i></a>
+                        </div>
+                    </div>
+                <% }) %>
+               
+            <% }  else{ %>
+                <h3 class="text-zinc-500"> Currently nothing to show, create a hisaab.</h3>
+           <% } %>
+        </div>
+    </main>
+</body>
+
+</html>
